@@ -19,7 +19,10 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link>Home</Link></li>
-            <li><a>Item 2</a></li>
+            <li><Link>Instructors</Link></li>
+            <li><Link>Classes</Link></li>
+            <li><Link to='/logIn'>Login</Link></li>
+            
           </ul>
         </div>
         <div className="navbar-end">
@@ -36,7 +39,7 @@ const NavBar = () => {
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                        <li><a>Settings</a></li>
+                        <li><a>Dashboard</a></li>
                         <li><a>Logout</a></li>
                     </ul>
                 </div>
