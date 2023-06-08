@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const GoogleLogIn = () => {
     const {googleSingIn}=useContext(AuthContext);
@@ -8,6 +9,13 @@ const GoogleLogIn = () => {
         googleSingIn()
         .then(result=>{
             const logInUser=result.user;
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'LogIn successful',
+                showConfirmButton: false,
+                timer: 1500
+              })
             console.log(logInUser)
         })
     }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 
 const SingIn = () => {
@@ -11,6 +12,13 @@ const SingIn = () => {
         createUser(data.email, data.password)
         .then(result=>{
             const logUser=result.user;
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'LogIn successful',
+                showConfirmButton: false,
+                timer: 1500
+              })
             console.log('result user',logUser)
         })
     };
