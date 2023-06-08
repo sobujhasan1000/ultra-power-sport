@@ -33,9 +33,9 @@ const NavBar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><Link>Home</Link></li>
-          <li><Link>Instructors</Link></li>
-          <li><Link>Classes</Link></li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/instructor'>Instructors</Link></li>
+          <li><Link to='/classes'>Classes</Link></li>
         </ul>
       </div>
       {
@@ -49,7 +49,7 @@ const NavBar = () => {
                   </div>
                 </label>
                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                  <li><a>Dashboard</a></li>
+                  <li><Link to='/dashboard'>Dashboard</Link></li>
                   <li onClick={handelLogOut}><a>Logout</a></li>
                 </ul>
               </div>

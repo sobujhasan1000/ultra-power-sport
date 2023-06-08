@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import GoogleLogIn from '../../SocialLoging/GoogleLogIn';
 
@@ -9,12 +9,27 @@ import GoogleLogIn from '../../SocialLoging/GoogleLogIn';
 const LogIn = () => {
     const { register, handleSubmit } = useForm();
     const {singIn}=useContext(AuthContext);
+
+    const navigate= useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
     const onSubmit = data => {
         singIn(data.email, data.password)
         .then(result=>{
             const user=result.user;
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'LogIn successful',
+                showConfirmButton: false,
+                timer: 1500
+              })
             console.log(user)
+            navigate(from, { replace: true });
         })
+        
     }
     return (
         <div className='my-4'>
