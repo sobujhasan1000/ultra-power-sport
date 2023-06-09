@@ -5,36 +5,56 @@ import Swal from 'sweetalert2';
 
 
 const SingIn = () => {
-    const { register, handleSubmit,watch,formState:{errors} } = useForm();
-    const {createUser}=useContext(AuthContext);
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const onSubmit = data => {
         // console.log('from data',data)
         createUser(data.email, data.password)
-        .then(result=>{
-            const logUser=result.user;
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'LogIn successful',
-                showConfirmButton: false,
-                timer: 1500
-              })
-            console.log('result user',logUser)
-        })
+            .then(result => {
+                const logUser = result.user;
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveuser={name:data.name, email:data.email}
+                        fetch('http://localhost:5000/users',{
+                            method:'POST',
+                            headers:{
+                                'content-type':'application/json'
+                            },
+                            body:JSON.stringify(saveuser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'user create successful',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                }
+                            })
+
+                    })
+
+                console.log('result user', logUser)
+            })
     };
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8 justify-center items-center my-4 bg-sky-200 p-4'>
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='name'  {...register("name",{required:true})} placeholder='name' />
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='name'  {...register("name", { required: true })} placeholder='name' />
                 {errors.name && <span>name is requred</span>}
 
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='email'  {...register("email",{required:true})} placeholder='email' />
-              {errors.email && <span>email is requred</span>}
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='email'  {...register("email", { required: true })} placeholder='email' />
+                {errors.email && <span>email is requred</span>}
 
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='password'  {...register("password",{minLength:6, maxLength:20, pattern: /^[A-Za-z]+$/i,required:true}) } placeholder='password' />
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='password'  {...register("password", { minLength: 6, maxLength: 20, pattern: /^[A-Za-z]+$/i, required: true })} placeholder='password' />
                 {errors.password && <span>password is requred</span>}
 
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' name='confirm_password' type='password'  {...register("confirm_password",{required:true,})} placeholder='confirm password' />
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' name='confirm_password' type='password'  {...register("confirm_password", { required: true, })} placeholder='confirm password' />
                 {errors.confirm_password && <span>password is requred</span>}
 
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' type='url'  {...register("photoUrl")} placeholder='photo Url' />

@@ -9,14 +9,25 @@ const GoogleLogIn = () => {
         googleSingIn()
         .then(result=>{
             const logInUser=result.user;
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'LogIn successful',
-                showConfirmButton: false,
-                timer: 1500
-              })
             console.log(logInUser)
+            const saveuser={name:logInUser.displayName, email:logInUser.email}
+            fetch('http://localhost:5000/users',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(saveuser)
+            })
+                .then(res => res.json())
+                .then(() => {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'logIn successful',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                })
         })
     }
     return (
