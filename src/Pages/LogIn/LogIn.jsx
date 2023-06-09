@@ -35,8 +35,8 @@ const LogIn = () => {
         <div className='my-4'>
            <div>
            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col w-96 text-center gap-8'>
-                <input className='p-2 bg-sky-100 rounded-md' type='email'  {...register("email")} placeholder='email' />
-                <input className='p-2 bg-sky-100 rounded-md' type='password'  {...register("password")} placeholder='password' />
+                <input className='p-2 bg-sky-100 rounded-md' type='email'  {...register("email",{required:true})} placeholder='email' />
+                <input className='p-2 bg-sky-100 rounded-md' type='password'  {...register("password",{required:true})} placeholder='password' />
                 <input className='btn' type="submit" />
             </form>
             <GoogleLogIn></GoogleLogIn> <br />
