@@ -10,6 +10,7 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import SelectedClass from "../Pages/Dashboard/StudentPage/SelectedClass";
 import PaymentHistroy from "../Pages/Dashboard/StudentPage/PaymentHistroy";
+import ManageUser from "../Pages/Dashboard/AdminPage/ManageUser";
 
   export const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ import PaymentHistroy from "../Pages/Dashboard/StudentPage/PaymentHistroy";
         {
           path:'enroledClass',
           element:<PaymentHistroy></PaymentHistroy>
+        },
+        {
+          path:'manageusers',
+          element:<ManageUser></ManageUser>
         },
       ]
   },

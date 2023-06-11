@@ -22,7 +22,7 @@ const Dashboard = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link >Admin Home</Link></li>
         <li><Link>Manage Classes</Link></li>
-        <li><Link>Manage Users</Link></li>
+        <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
         </>
         :<>
         <li><Link to='/'>Home</Link></li>
