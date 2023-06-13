@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../Customhooks/Admin/useAdmin';
+import useInstructor from '../../Customhooks/Instructor/useInstructor';
+
 
 
 
@@ -9,6 +11,7 @@ import useAdmin from '../../Customhooks/Admin/useAdmin';
 // const [isAdmin]=useAdmin();
 const Dashboard = () => {
   const [isAdmin]=useAdmin();
+  const[isInstructor]=useInstructor();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -24,12 +27,17 @@ const Dashboard = () => {
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
       {
-        isAdmin?<>
+        isAdmin?(<>
         <li><Link to='/'>Home</Link></li>
         <li><Link >Admin Home</Link></li>
         <li><Link>Manage Classes</Link></li>
         <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
-        </>
+        </>)
+        :isInstructor?(<>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link >instractor Home</Link></li>
+        <li><Link>Add  Classes</Link></li>
+        </>)
         :<>
         <li><Link to='/'>Home</Link></li>
       <li><Link to='/dashboard/selectedClass'>Selected Class</Link></li>
