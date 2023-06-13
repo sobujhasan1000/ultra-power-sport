@@ -5,12 +5,12 @@ import Main from "../LayOut/Main";
 import Home from "../Pages/Home/Home/Home";
 import LogIn from "../Pages/LogIn/LogIn";
 import SingIn from "../Pages/SingIn/SingIn";
-import Instructor from "../Pages/InstructorPage/Instructor";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import SelectedClass from "../Pages/Dashboard/StudentPage/SelectedClass";
 import PaymentHistroy from "../Pages/Dashboard/StudentPage/PaymentHistroy";
 import ManageUser from "../Pages/Dashboard/AdminPage/ManageUser";
+import AddClasses from "../Pages/Dashboard/Instructor/AddClasses";
 
   export const router = createBrowserRouter([
     {
@@ -28,10 +28,6 @@ import ManageUser from "../Pages/Dashboard/AdminPage/ManageUser";
         {
             path:'singIn',
             element: <SingIn></SingIn>
-        },
-        {
-            path:'instructor',
-            element: <Instructor></Instructor>
         },
         {
             path:'classes',
@@ -58,6 +54,10 @@ import ManageUser from "../Pages/Dashboard/AdminPage/ManageUser";
         {
           path:'manageusers',
           element:<ManageUser></ManageUser>
+        },
+        {
+          path:'addclasses',
+          element:<AddClasses></AddClasses>
         },
       ]
   },

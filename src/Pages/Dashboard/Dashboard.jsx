@@ -35,13 +35,15 @@ const Dashboard = () => {
         </>)
         :isInstructor?(<>
         <li><Link to='/'>Home</Link></li>
-        <li><Link >instractor Home</Link></li>
-        <li><Link>Add  Classes</Link></li>
+        <li><Link >Instractor Home</Link></li>
+        <li><Link to='/dashboard/addclasses'>Add  Classes</Link></li>
+        <li><Link>My Classes</Link></li>
         </>)
         :<>
         <li><Link to='/'>Home</Link></li>
-      <li><Link to='/dashboard/selectedClass'>Selected Class</Link></li>
-      <li><Link to='/dashboard/enroledClass'>Enroled Class</Link></li>
+      <li><Link to='/dashboard/selectedClass'>Student Home</Link></li>
+      <li><Link to='/dashboard/selectedClass'>My Selected Class</Link></li>
+      <li><Link to='/dashboard/enroledClass'>My Enroled Class</Link></li>
       <li><Link to='/dashboard/selectedClass'>Payment Histroy</Link></li>
         </>
       }
