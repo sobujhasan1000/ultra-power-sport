@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import useAdmin from '../../Customhooks/Admin/useAdmin';
 
-const isAdmin=true;
+
+
+
+// const isAdmin=true;
+// const [isAdmin]=useAdmin();
 const Dashboard = () => {
+  const [isAdmin]=useAdmin();
     return (
         <div>
             <div className="drawer lg:drawer-open">
