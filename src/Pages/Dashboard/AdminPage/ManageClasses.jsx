@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Swal from "sweetalert2";
 
 const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery(["classes"], async () => {
@@ -15,7 +16,7 @@ const ManageClasses = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
+        // console.log(data)
         if(data.modifiedCount){
             refetch()
             Swal.fire({
@@ -32,7 +33,23 @@ const ManageClasses = () => {
 //  handel denied
 
 const handelDeny=id=>{
-
+    fetch(`http://localhost:5000/classes/denied/${id}`,{
+        method:'PATCH'
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        // console.log(data)
+        if(data.modifiedCount){
+            refetch()
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'successful',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
+    })
 }
 
   return (
