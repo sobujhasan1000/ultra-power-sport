@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 
 const SingIn = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch,reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate=useNavigate();
     const onSubmit = data => {
         // console.log('from data',data)
         createUser(data.email, data.password,data.photoURL)
@@ -34,6 +36,7 @@ const SingIn = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
+                                    navigate('/')
                                 }
                             })
 

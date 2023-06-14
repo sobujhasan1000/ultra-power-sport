@@ -22,7 +22,7 @@ const ManageClasses = () => {
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'successful',
+                title: 'successful approved',
                 showConfirmButton: false,
                 timer: 1500
               })
@@ -44,7 +44,7 @@ const handelDeny=id=>{
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'successful',
+                title: 'successful denied',
                 showConfirmButton: false,
                 timer: 1500
               })
