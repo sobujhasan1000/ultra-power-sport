@@ -30,14 +30,14 @@ const Dashboard = () => {
         isAdmin?(<>
         <li><Link to='/'>Home</Link></li>
         <li><Link >Admin Home</Link></li>
-        <li><Link>Manage Classes</Link></li>
+        <li><Link to='/dashboard/manageclasses'>Manage Classes</Link></li>
         <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
         </>)
         :isInstructor?(<>
         <li><Link to='/'>Home</Link></li>
         <li><Link >Instractor Home</Link></li>
         <li><Link to='/dashboard/addclasses'>Add  Classes</Link></li>
-        <li><Link>My Classes</Link></li>
+        <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
         </>)
         :<>
         <li><Link to='/'>Home</Link></li>

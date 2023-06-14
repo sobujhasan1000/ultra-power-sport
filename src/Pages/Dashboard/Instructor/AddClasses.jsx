@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Customhooks/Auth/useAuth";
+import Swal from "sweetalert2";
 
 const AddClasses = () => {
     const {user}=useAuth();
@@ -8,7 +9,27 @@ const AddClasses = () => {
 
     const { register, handleSubmit } = useForm();
   const onSubmit = data =>{
-           console.log(data)
+    fetch('http://localhost:5000/classes',{
+      method:'POST',
+      headers:{
+          'content-type':'application/json'
+      },
+      body: JSON.stringify(data),
+  })
+  .then((res)=>res.json())
+  .then((result)=>{
+      console.log(result)
+      if (data.insertedId) {
+        reset();
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'class aproved panding',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+  })
   } 
 //   console.log(data);
 
