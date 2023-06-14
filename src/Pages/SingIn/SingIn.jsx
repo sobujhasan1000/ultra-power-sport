@@ -9,12 +9,12 @@ const SingIn = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const onSubmit = data => {
         // console.log('from data',data)
-        createUser(data.email, data.password)
+        createUser(data.email, data.password,data.photoURL)
             .then(result => {
                 const logUser = result.user;
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const saveuser={name:data.name, email:data.email}
+                        const saveuser={name:data.name, email:data.email, photoURL:data.photoURL}
                         fetch('http://localhost:5000/users',{
                             method:'POST',
                             headers:{
@@ -51,13 +51,13 @@ const SingIn = () => {
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' type='email'  {...register("email", { required: true })} placeholder='email' />
                 {errors.email && <span>email is requred</span>}
 
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='password'  {...register("password", { minLength: 6, maxLength: 20, pattern: /^[A-Za-z]+$/i, required: true })} placeholder='password' />
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='password'  {...register("password", { minLength: 6, maxLength: 20, pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z!@#$%^&*]+$/, required: true })} placeholder='password' />
                 {errors.password && <span>password is requred</span>}
 
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' name='confirm_password' type='password'  {...register("confirm_password", { required: true, })} placeholder='confirm password' />
                 {errors.confirm_password && <span>password is requred</span>}
 
-                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='url'  {...register("photoUrl")} placeholder='photo Url' />
+                <input className='p-2 bg-sky-100 rounded-md w-1/3' type='url'  {...register("photoURL")} placeholder='photo Url' />
                 <input className='btn' type="submit" />
             </form>
         </>

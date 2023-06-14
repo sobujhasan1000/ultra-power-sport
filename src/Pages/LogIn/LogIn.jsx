@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import GoogleLogIn from '../../SocialLoging/GoogleLogIn';
+import Swal from 'sweetalert2';
 
 
 

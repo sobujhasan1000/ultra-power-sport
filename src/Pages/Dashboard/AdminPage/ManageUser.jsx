@@ -7,7 +7,7 @@ const ManageUser = () => {
         const res = await fetch('http://localhost:5000/users')
         return res.json();
     })
-    console.log(users)
+    console.log('manage users',users)
 
 
 // =======================create admin============================

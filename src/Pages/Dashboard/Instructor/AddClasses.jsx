@@ -4,10 +4,13 @@ import useAuth from "../../../Customhooks/Auth/useAuth";
 
 const AddClasses = () => {
     const {user}=useAuth();
-    console.log(user)
+    console.log(user);
 
     const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data =>{
+           console.log(data)
+  } 
+//   console.log(data);
 
   return (
     <div className="w-full p-4">
@@ -57,7 +60,7 @@ const AddClasses = () => {
           />
         </div>
         <div className="flex sm:flex-row flex-col gap-10 justify-center p-4">
-          <input
+          <input defaultValue={user.photoURL}
             className="text-input w-80  p-1 rounded-md "
             {...register("instructorPhoto")}
             placeholder="Photo url instructor"
