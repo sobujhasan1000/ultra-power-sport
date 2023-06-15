@@ -1,0 +1,39 @@
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+
+const PopularClass = () => {
+  const { data: PopularCls = [], refetch } = useQuery(
+    ["approved"],
+    async () => {
+      const res = await fetch("http://localhost:5000/classes/approved");
+      //   return res.json();
+      const responseData = await res.json();
+      return responseData.slice(0, 6);
+    }
+  );
+  console.log(PopularCls);
+  return (
+    <div>
+      <h1 className="text-center text-xl font-bold my-4 bg-violet-200 p-4 mx-2">
+        Our Popular Calss list</h1>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-2">
+          {PopularCls.map((cls) => (
+            <div className="card  bg-base-200 shadow-xl image-full">
+              <figure>
+                <img
+                  src={cls.classPhoto
+                  }
+                  alt="Shoes"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{cls.className}</h2>
+              </div>
+            </div>
+          ))}
+        </div>
+    </div>
+  );
+};
+
+export default PopularClass;
