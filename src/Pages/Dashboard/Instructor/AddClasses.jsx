@@ -7,7 +7,7 @@ const AddClasses = () => {
     const {user}=useAuth();
     console.log(user);
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
   const onSubmit = data =>{
     fetch('http://localhost:5000/classes',{
       method:'POST',
@@ -19,7 +19,7 @@ const AddClasses = () => {
   .then((res)=>res.json())
   .then((result)=>{
       console.log(result)
-      if (data.insertedId) {
+      if (result.insertedId) {
         reset();
         Swal.fire({
             position: 'top-end',

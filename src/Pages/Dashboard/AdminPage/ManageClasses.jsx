@@ -55,11 +55,11 @@ const handelDeny=id=>{
   return (
     <div>
       <h1 className="text-xl text-center my-4">Total classes {classes.length}</h1>
-      <div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 mx-4">
         {classes.map((cls) => (
-          <div key={cls._id} className="card bg-base-100 shadow-xl">
-            <figure>
-              <img src={cls.classPhoto} alt="Shoes" />
+          <div key={cls._id} className="card bg-base-300 shadow-xl">
+            <figure className="">
+              <img className="h-72" src={cls.classPhoto} alt="Shoes" />
             </figure>
             <div className="card-body">
                 <h1 className="text-center text-sky-400">Status: {cls.status==='approved'? 'approved': cls.status==='denied'?'denied':'Pending'} </h1>
