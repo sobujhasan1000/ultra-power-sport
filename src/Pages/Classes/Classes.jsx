@@ -29,7 +29,7 @@ const Classes = () => {
   );
 // select course and send server
    const handelSelect=clss=>{
-    console.log(clss)
+    // console.log(clss)
     const {className,classPhoto,instructorName,price,seatRange}=clss;
     if(user && user.email){
       const selectCourse={className,classPhoto,instructorName,price,seatRange,email: user.email}
