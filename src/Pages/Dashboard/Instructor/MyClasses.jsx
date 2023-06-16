@@ -8,7 +8,7 @@ const MyClasses = () => {
 
   const { data: posted = [], refetch } = useQuery(["posted"], async () => {
     const res = await fetch(
-      `http://localhost:5000/users/posted?email=${user?.email}`
+      `https://ultra-sport-server.vercel.app/users/posted?email=${user?.email}`
     );
     return res.json();
   });

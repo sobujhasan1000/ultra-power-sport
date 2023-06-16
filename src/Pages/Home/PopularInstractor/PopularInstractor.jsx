@@ -5,7 +5,7 @@ const PopularInstractor = () => {
   const { data: instructor = [], refetch } = useQuery(
     ["instructor"],
     async () => {
-      const res = await fetch("http://localhost:5000/users/instructor");
+      const res = await fetch("https://ultra-sport-server.vercel.app/users/instructor");
       const responseData = await res.json();
       return responseData.slice(0, 6);
     }

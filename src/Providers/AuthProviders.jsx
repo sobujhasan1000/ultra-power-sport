@@ -50,7 +50,7 @@ const AuthProviders = ({children}) => {
             setUser(currentUser);
             console.log('authprovider currenuser',currentUser);
             if(currentUser){
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
+                axios.post('https://ultra-sport-server.vercel.app/jwt', {email: currentUser.email})
                 .then(data=>{
                     // console.log('jwt post',data.data)
                     localStorage.setItem('access-token',data.data.token)

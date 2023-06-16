@@ -9,7 +9,7 @@ const AddClasses = () => {
 
     const { register, handleSubmit,reset } = useForm();
   const onSubmit = data =>{
-    fetch('http://localhost:5000/classes',{
+    fetch('https://ultra-sport-server.vercel.app/classes',{
       method:'POST',
       headers:{
           'content-type':'application/json'

@@ -12,7 +12,7 @@ const GoogleLogIn = () => {
             const logInUser=result.user;
             console.log(logInUser)
             const saveuser={name:logInUser.displayName, email:logInUser.email}
-            fetch('http://localhost:5000/users',{
+            fetch('https://ultra-sport-server.vercel.app/users',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'

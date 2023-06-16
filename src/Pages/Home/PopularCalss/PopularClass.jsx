@@ -9,7 +9,7 @@ const PopularClass = () => {
   const { data: PopularCls = [], refetch } = useQuery(
     ["approved"],
     async () => {
-      const res = await fetch("http://localhost:5000/classes/approved");
+      const res = await fetch("https://ultra-sport-server.vercel.app/classes/approved");
       //   return res.json();
       const responseData = await res.json();
       return responseData.slice(0, 6);

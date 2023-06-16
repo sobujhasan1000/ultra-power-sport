@@ -4,14 +4,14 @@ import Swal from "sweetalert2";
 
 const ManageClasses = () => {
   const { data: classes = [], refetch } = useQuery(["classes"], async () => {
-    const res = await fetch("http://localhost:5000/classes");
+    const res = await fetch("https://ultra-sport-server.vercel.app/classes");
     return res.json();
   });
   console.log(classes);
 
 //   handel approved
  const handelApprove=id=>{
-    fetch(`http://localhost:5000/classes/approve/${id}`,{
+    fetch(`https://ultra-sport-server.vercel.app/classes/approve/${id}`,{
         method:'PATCH'
     })
     .then(res=>res.json())
@@ -33,7 +33,7 @@ const ManageClasses = () => {
 //  handel denied
 
 const handelDeny=id=>{
-    fetch(`http://localhost:5000/classes/denied/${id}`,{
+    fetch(`https://ultra-sport-server.vercel.app/classes/denied/${id}`,{
         method:'PATCH'
     })
     .then(res=>res.json())
