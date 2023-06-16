@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../Customhooks/Admin/useAdmin';
 import useInstructor from '../../Customhooks/Instructor/useInstructor';
+import { FaBook, FaBookOpen, FaBookmark, FaCheck, FaHome, FaHouseUser, FaPlusCircle, FaUsers, FaWallet } from 'react-icons/fa';
 
 
 
@@ -28,23 +29,23 @@ const Dashboard = () => {
       {/* Sidebar content here */}
       {
         isAdmin?(<>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link >Admin Home</Link></li>
-        <li><Link to='/dashboard/manageclasses'>Manage Classes</Link></li>
-        <li><Link to='/dashboard/manageusers'>Manage Users</Link></li>
+        <li><Link to='/'><FaHome />Home</Link></li>
+        <li><Link to='/dashboard/dashboardhome' > <FaHouseUser />Admin Home</Link></li>
+        <li><Link to='/dashboard/manageclasses'> <FaCheck /> Manage Classes</Link></li>
+        <li><Link to='/dashboard/manageusers'><FaUsers/>Manage Users</Link></li>
         </>)
         :isInstructor?(<>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link >Instractor Home</Link></li>
-        <li><Link to='/dashboard/addclasses'>Add  Classes</Link></li>
-        <li><Link to='/dashboard/myclasses'>My Classes</Link></li>
+        <li><Link to='/'><FaHome /> Home</Link></li>
+        <li><Link to='/dashboard/dashboardhome'  > <FaHouseUser />Instractor Home</Link></li>
+        <li><Link to='/dashboard/addclasses'> <FaPlusCircle />Add  Classes</Link></li>
+        <li><Link to='/dashboard/myclasses'><FaBook/>My Classes</Link></li>
         </>)
         :<>
-        <li><Link to='/'>Home</Link></li>
-      <li><Link to='/dashboard/selectedClass'>Student Home</Link></li>
-      <li><Link to='/dashboard/selectedClass'>My Selected Class</Link></li>
-      <li><Link to='/dashboard/enroledClass'>My Enroled Class</Link></li>
-      <li><Link to='/dashboard/selectedClass'>Payment Histroy</Link></li>
+        <li><Link to='/'><FaHome /> Home</Link></li>
+      <li><Link to='/dashboard/dashboardhome' ><FaHouseUser />Student Home</Link></li>
+      <li><Link to='/dashboard/selectedClass'> <FaBookmark/>My Selected Class</Link></li>
+      <li><Link to='/dashboard/enroledClass'><FaBookOpen/>My Enroled Class</Link></li>
+      <li><Link to='/dashboard/selectedClass'><FaWallet/>Payment Histroy</Link></li>
         </>
       }
     </ul>

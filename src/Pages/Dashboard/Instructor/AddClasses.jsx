@@ -35,7 +35,7 @@ const AddClasses = () => {
 
   return (
     <div className="w-full p-4">
-        <h2 className='my-6 text-xl  text-center'>Add Your class</h2>
+        <h2 className='my-6 text-xl  text-center font-bold'>Add Your class</h2>
       <form onSubmit={handleSubmit(onSubmit)} className='bg-slate-200 pt-4 text-center'>
         <div className="flex sm:flex-row flex-col gap-10 justify-center p-4">
           <input defaultValue={user.displayName}

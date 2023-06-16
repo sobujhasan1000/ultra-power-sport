@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
 import Swal from 'sweetalert2';
+import {  FaGoogle } from 'react-icons/fa';
 
 const GoogleLogIn = () => {
     const {googleSingIn}=useContext(AuthContext);
@@ -31,8 +32,8 @@ const GoogleLogIn = () => {
         })
     }
     return (
-        <div>
-            <button onClick={handelgooglelog} className='btn text-center my-2 ml-12'>login with google</button>
+        <div className='mt-10 bg-emerald-400 text-center rounded-md'>
+            <button onClick={handelgooglelog} className='btn text-center my-2 bg-emerald-400 '><FaGoogle/>login with google</button>
         </div>
     );
 };

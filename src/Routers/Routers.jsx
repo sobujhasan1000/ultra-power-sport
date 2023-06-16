@@ -14,6 +14,9 @@ import AddClasses from "../Pages/Dashboard/Instructor/AddClasses";
 import ManageClasses from "../Pages/Dashboard/AdminPage/ManageClasses";
 import MyClasses from "../Pages/Dashboard/Instructor/MyClasses";
 import AllInstructor from "../Pages/AllInstractor/AllInstructor";
+import Page404 from "../Pages/Notfound/Page404";
+import DashboartHome from "../Pages/Dashboard/DashboartHome";
+import PrivateRoute from "./PrivateRoute";
 
   export const router = createBrowserRouter([
     {
@@ -72,8 +75,16 @@ import AllInstructor from "../Pages/AllInstractor/AllInstructor";
         },
         {
           path:'myclasses',
-          element:<MyClasses></MyClasses>
+          element:<PrivateRoute><MyClasses></MyClasses></PrivateRoute>
+        },
+        {
+          path:'dashboardhome',
+          element:<DashboartHome></DashboartHome>
         },
       ]
   },
+  {
+    path:'*',
+    element:<Page404></Page404>
+  }
   ]);

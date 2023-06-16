@@ -10,6 +10,9 @@ const SingIn = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate=useNavigate();
     const onSubmit = data => {
+        if (data.password !== data.confirm_password) {
+            return //  (Passwords  not match)
+          }
         // console.log('from data',data)
         createUser(data.email, data.password,data.photoURL)
             .then(result => {
@@ -47,7 +50,7 @@ const SingIn = () => {
     };
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8 justify-center items-center my-4 bg-sky-200 p-4'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-8 justify-center items-center my-4 bg-sky-200 py-14 rounded-md'>
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' type='name'  {...register("name", { required: true })} placeholder='name' />
                 {errors.name && <span>name is requred</span>}
 
@@ -59,6 +62,7 @@ const SingIn = () => {
 
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' name='confirm_password' type='password'  {...register("confirm_password", { required: true, })} placeholder='confirm password' />
                 {errors.confirm_password && <span>password is requred</span>}
+                {watch('password') !== watch('confirm_password') && <span>Passwords do not match</span>}
 
                 <input className='p-2 bg-sky-100 rounded-md w-1/3' type='url'  {...register("photoURL")} placeholder='photo Url' />
                 <input className='btn' type="submit" />

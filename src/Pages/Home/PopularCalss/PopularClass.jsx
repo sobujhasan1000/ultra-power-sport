@@ -1,5 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const PopularClass = () => {
   const { data: PopularCls = [], refetch } = useQuery(
@@ -19,7 +23,7 @@ const PopularClass = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-2">
           {PopularCls.map((cls) => (
             <div className="card  bg-base-200 shadow-xl image-full">
-              <figure>
+              <figure data-AOS="zoom-in-down">
                 <img
                   src={cls.classPhoto
                   }

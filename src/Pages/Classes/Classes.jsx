@@ -1,7 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useAdmin from "../../Customhooks/Admin/useAdmin";
+import useInstructor from "../../Customhooks/Instructor/useInstructor";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 const Classes = () => {
+  const [isAdmin]=useAdmin();
+  const[isInstructor]=useInstructor();
   const { data: approvedClass = [], refetch } = useQuery(
     ["approved"],
     async () => {
@@ -16,7 +24,7 @@ const Classes = () => {
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 m-2">
         {approvedClass.map((clss) => (
           <div key={clss._id} className="card bg-base-300 shadow-xl ">
-            <figure className="px-10 pt-10">
+            <figure data-aos="zoom-out-right" className="px-10 pt-10">
               <img
                 src={clss.classPhoto}
                 alt="Shoes"
@@ -28,9 +36,11 @@ const Classes = () => {
               <p>instractor Name: {clss.instructorName}</p>
               <p>available seat: {clss.seatRange}</p>
               <p>course price: {clss.price}</p>
-              <div className="card-actions">
-                <button className="btn btn-primary">selecct Now</button>
+            {isAdmin?<></>: isInstructor?<></>:<>
+            <div className="card-actions">
+                <button className="btn bg-slate-300">selecct Now</button>
               </div>
+            </>}
             </div>
           </div>
         ))}
