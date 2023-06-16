@@ -56,16 +56,16 @@ const AddClasses = () => {
             placeholder="class photo url"
           />
           <select {...register("className")} className="text-input w-80  p-1 rounded-md " placeholder="selected  class">
-          <option value="foodball">foodball</option>
-          <option value="cricet">cricket</option>
-          <option value="badmainton">badmainton</option>
-          <option value="tenis">hokey</option>
-          <option value="tenis">volleyball</option>
-          <option value="tenis">Tenis</option>
-          <option value="tenis">Table tanis</option>
-          <option value="tenis">Busket Ball</option>
-          <option value="tenis">Base Ball</option>
-          <option value="tenis">Rugby</option>
+          <option value="Football">foodball</option>
+          <option value="Cricet">cricket</option>
+          <option value="Badmainton">badmainton</option>
+          <option value="Hokey">hokey</option>
+          <option value="Volleyball">volleyball</option>
+          <option value="Tenis">Tenis</option>
+          <option value="Table Tanis">Table tanis</option>
+          <option value="Busket Ball">Busket Ball</option>
+          <option value="Base ball">Base Ball</option>
+          <option value="Rugby">Rugby</option>
         </select>
         </div>
         <div className="flex sm:flex-row flex-col gap-10 justify-center p-4">

@@ -19,8 +19,8 @@ const PopularClass = () => {
   return (
     <div>
       <h1 className="text-center text-xl font-bold my-4 bg-violet-200 p-4 mx-2">
-        Our Popular Calss list</h1>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-2">
+        Our Popular class list</h1>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-2 p-16 bg-slate-600 rounded-md">
           {PopularCls.map((cls) => (
             <div className="card  bg-base-200 shadow-xl image-full">
               <figure data-AOS="zoom-in-down">
