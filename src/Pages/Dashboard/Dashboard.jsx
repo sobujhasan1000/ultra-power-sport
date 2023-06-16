@@ -45,7 +45,7 @@ const Dashboard = () => {
       <li><Link to='/dashboard/dashboardhome' ><FaHouseUser />Student Home</Link></li>
       <li><Link to='/dashboard/selectedClass'> <FaBookmark/>My Selected Class</Link></li>
       <li><Link to='/dashboard/enroledClass'><FaBookOpen/>My Enroled Class</Link></li>
-      <li><Link to='/dashboard/selectedClass'><FaWallet/>Payment Histroy</Link></li>
+      <li><Link to='/dashboard/paymentHistroy'><FaWallet/>Payment Histroy</Link></li>
         </>
       }
     </ul>

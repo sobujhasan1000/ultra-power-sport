@@ -17,6 +17,7 @@ import AllInstructor from "../Pages/AllInstractor/AllInstructor";
 import Page404 from "../Pages/Notfound/Page404";
 import DashboartHome from "../Pages/Dashboard/DashboartHome";
 import PrivateRoute from "./PrivateRoute";
+import EnroledClass from "../Pages/Dashboard/StudentPage/EnroledClass";
 
   export const router = createBrowserRouter([
     {
@@ -54,11 +55,11 @@ import PrivateRoute from "./PrivateRoute";
           element:<SelectedClass></SelectedClass>
         },
         {
-          path:'paymentHistroy',
-          element:<PaymentHistroy></PaymentHistroy>
+          path:'enroledClass',
+          element:<EnroledClass></EnroledClass>
         },
         {
-          path:'enroledClass',
+          path:'paymentHistroy',
           element:<PaymentHistroy></PaymentHistroy>
         },
         {
