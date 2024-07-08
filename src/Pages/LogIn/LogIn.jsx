@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import GoogleLogIn from "../../SocialLoging/GoogleLogIn";
 import Swal from "sweetalert2";
+import logImg from "../../../src/assets/BannerImg/loging.png";
 
 const LogIn = () => {
   const { register, handleSubmit } = useForm();
@@ -28,31 +29,38 @@ const LogIn = () => {
       navigate(from, { replace: true });
     });
   };
+
   return (
-    <div className="my-4 flex justify-center items-center bg-green-200 py-10 rounded-md">
-      <div>
+    <div className="flex flex-col md:flex-row justify-around items-center bg-green-200 py-10 px-4 md:px-10 rounded-md">
+      <div className="w-full md:w-1/2 flex justify-center md:justify-end mb-4 md:mb-0">
+        <img src={logImg} alt="Login" className="w-full max-w-xs md:max-w-sm" />
+      </div>
+      <div className="w-full md:w-1/2 flex flex-col items-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col w-96 text-center gap-8"
+          className="flex flex-col w-full max-w-sm text-center gap-4"
         >
           <input
             className="p-2 bg-emerald-400 rounded-md"
             type="email"
             {...register("email", { required: true })}
-            placeholder="email"
+            placeholder="Email"
           />
           <input
             className="p-2 bg-emerald-400 rounded-md"
             type="password"
             {...register("password", { required: true })}
-            placeholder="password"
+            placeholder="Password"
           />
-          <input className="btn bg-emerald-400" type="submit" />
+          <input className="btn bg-emerald-400" type="submit" value="Log In" />
         </form>
-        <div className="divider"></div> 
-        <GoogleLogIn></GoogleLogIn> <br />
-        <Link className=" bg-emerald-400 text-center p-2 rounded-md ml-14" to="/singin">
-          if don't account singup here
+        <div className="divider">OR</div>
+        <GoogleLogIn />
+        <Link
+          className="bg-emerald-400 text-center p-2 rounded-md mt-4 w-full max-w-sm"
+          to="/singin"
+        >
+          Don't have an account? Sign up here
         </Link>
       </div>
     </div>
