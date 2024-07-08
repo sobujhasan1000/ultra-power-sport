@@ -8,15 +8,15 @@ const Thismonth = () => {
   return (
     <div>
       <div data-aos="flip-left" className=" md:flex xl:flex my-6 p-6">
-        <div className=" text-center lg:w-2/3 p-10  ">
+        <div className=" text-center lg:w-2/3 p-10 mt-auto mb-auto ">
           <h2 className="text-3xl font-extrabold">PALYER OF THE MONTH</h2>
           <h2 className="text-2xl font-extrabold  p-2 text-green-400 ">
             MR JHON SMITH
           </h2>
-          <h2 className="text-2xl font-extrabold pt-6 m-2">
+          <h2 className="text-2xl font-extrabold pt-6 m-2 text-orange-500">
             WHAT'S NEXT THIS MONTH
           </h2>
-          <p>
+          <p className="px-6 font-semibold text-black">
             The world of sports is ever changing. With technology rapidly
             gaining traction, with changing demographics and with changing
             consumer habits, it is extremely important to adjust quickly to the

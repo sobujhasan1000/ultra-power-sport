@@ -26,7 +26,7 @@ const PopularInstractor = () => {
       </h1>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mx-2">
         {instructor.map((inst) => (
-          <div className="card bg-red-100 shadow-xl  p-4" key={inst._id}>
+          <div className="card  shadow-xl  p-4" key={inst._id}>
             <div className=" text-center">
               <h2 className="text-lg font-bold"> {inst.name}</h2>
             </div>

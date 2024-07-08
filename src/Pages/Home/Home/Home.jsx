@@ -16,7 +16,7 @@ const Home = () => {
       <PopularClass></PopularClass>
       <PopularInstractor></PopularInstractor>
       <Thismonth></Thismonth>
-      {/* <Blogs></Blogs> */}
+      <Blogs></Blogs>
       <NewsLetter></NewsLetter>
     </div>
   );

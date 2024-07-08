@@ -1,24 +1,38 @@
+import { useQuery } from "@tanstack/react-query";
+
 const Blogs = () => {
+  const { data: blogs = [], refetch } = useQuery(["blogs"], async () => {
+    const res = await fetch("https://ultra-sport-server.vercel.app/blogs");
+    const responseData = await res.json();
+    return responseData.slice(0, 4);
+  });
+
   return (
     <div className="m-4 ">
-      <h1 className="text-center text-lg font-semibold">
-        Read our daily Blogs
+      <h1 className="text-center text-lg font-bold">
+        {" "}
+        <span className="text-red-500">Read our</span> daily Blogs
       </h1>
-      <div className="card bg-base-100 w-96 shadow-xl m-4">
-        <figure className="px-10 pt-10">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="Shoes"
-            className="rounded-xl"
-          />
-        </figure>
-        <div className="card-body items-center text-center">
-          {/* <h2 className="card-title">Shoes!</h2> */}
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-start">
-            <button className="  p-1 text-red-400 ">Read now''</button>
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mx-2">
+        {blogs.map((blog) => (
+          <div className="card bg-base-100 w-full shadow-xl m-4" key={blog._id}>
+            <figure className="px-4 pt-6">
+              <img
+                src={blog.img}
+                alt="Shoes"
+                className="rounded-xl h-48 w-full"
+              />
+            </figure>
+            <div className="card-body items-center text-center">
+              {/* <h2 className="card-title">Shoes!</h2> */}
+              <p className="font-bold text-lg">{blog.heading}</p>
+              <div className="card-actions justify-start">
+                <p>{blog.description.slice(0, 50)}</p>
+                <button className="  p-1 text-red-400 ">Read now...</button>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
