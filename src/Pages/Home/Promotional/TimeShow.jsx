@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TimeShow = () => {
   const calculateTimeLeft = () => {
-    const difference = +new Date("2024-08-01") - +new Date();
+    const difference = +new Date("2024-10-01") - +new Date();
     let timeLeft = {};
 
     if (difference > 0) {
